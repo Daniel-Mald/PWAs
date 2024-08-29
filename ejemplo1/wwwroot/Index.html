@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="Manifest.json" rel="manifest"/>
+    <meta name="viewport" content="width=device-width"/>
+    <title></title>
+    <style>
+        body, html{
+            margin:0;
+            padding:0;
+            width: 100%;
+
+        }
+        h1{
+            background-color:red;
+            color:white;
+            text-align:center;
+            padding :10px;
+        }
+        form{
+            margin:20px auto;
+            max-width: 500px;
+            display:grid;
+            grid-gap:10px;
+
+        }
+    </style>
+</head>
+<body>
+    <h1>Mi primer PWA</h1>
+    <form>
+        <label>Numero 1</label>
+        <input id="n1" type="number" />
+
+        <label>Numero 2</label>
+        <input id="n2" type="number" />
+
+        <input id="btn" type="button" value="Sumar" />
+        <label>Resultado </label>
+        <input id="res" type="number" />
+
+    </form>
+    <script>
+        const n1 = document.getElementById("n1");
+        const n2 = document.getElementById("n2");
+        const btn = document.getElementById("btn");
+        const res = document.getElementById("res");
+
+        btn.addEventListener("click", function () {
+            if (n1.value && n2.value) {
+                res.value = Number(n1.value) + Number(n2.value);
+            }
+        })
+
+    </script>
+    <script>
+        navigator.serviceWorker.register("ServiceWorker.js");
+    </script>
+</body>
+</html>

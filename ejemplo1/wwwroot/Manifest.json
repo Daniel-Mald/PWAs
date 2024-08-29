@@ -1,0 +1,14 @@
+{
+  "name": "Mi fokin pwa",
+  "description": "Ejercicio de 9no semestre",
+  "icons": [
+    {
+      "src": "images/fokinImagen.png",
+      "sizes": "512x512"
+    }
+    
+  ],
+  "start_url": "index.html",
+  "orientation": "portrait",
+  "display": "standalone"
+}
