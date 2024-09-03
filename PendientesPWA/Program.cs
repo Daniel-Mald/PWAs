@@ -7,7 +7,7 @@ builder.Services.AddControllers(); //para la api
 
 //tabla: pendiente
 //id, descripcioin , estado
-builder.Services.AddSingleton<FokinPendientesContext>();
+builder.Services.AddSingleton<FokinpendientesContext>();
 
 var app = builder.Build();
 
