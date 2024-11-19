@@ -11,9 +11,9 @@ namespace PendientesPWA.Controllers
     [ApiController]
     public class PendientesController : ControllerBase
     {
-        FokinPendientesContext _context;
+        FokinpendientesContext _context;
         IHubContext<PendientesHub> _hubContext;
-        public PendientesController(FokinPendientesContext context, IHubContext<PendientesHub> hubContext)
+        public PendientesController(FokinpendientesContext context, IHubContext<PendientesHub> hubContext)
         {
             _context = context;
             _hubContext = hubContext;
@@ -75,8 +75,24 @@ namespace PendientesPWA.Controllers
         [HttpPut("/EditarEstado")]
         public IActionResult PutEstado(PendienteDTO _dto)
         {
+            if(_dto.Id == null) { return BadRequest(); }
+            var pen = _context.Asf.Find(_dto.Id);
+            pen.Estado = (int)_dto.Estado;
+            _context.Update(pen);
+            _context.SaveChanges();
             return Ok();
 
+        }
+        [HttpDelete("Delete")]
+        public async Task<IActionResult> Delete(int id)
+        {
+            
+            var pen = _context.Asf.Find(id);
+            _context.Remove(pen);
+            _context.SaveChanges();
+
+            await _hubContext.Clients.All.SendAsync("PendienteEliminado", pen.Id);
+            return Ok();
         }
     }
 }

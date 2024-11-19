@@ -1,0 +1,121 @@
+﻿html, body {
+    margin:0;
+    padding:0;
+    width:100%;
+    height:100%;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+body{
+    display:grid;
+    grid-template-rows:70px auto;
+    
+}
+header{
+    background-color:navy;
+    color:white;
+    text-align:center;
+    font-size:medium;
+    line-height:50px;
+    display:flex;
+    padding:0px;
+    justify-content:space-between;
+}
+header h1{
+    margin:0;
+    padding:0;
+}
+header a{
+    margin:0 10px;
+    text-decoration:none;
+    color:white;
+    font-size:2em;
+    line-height:30px
+}
+main{
+    overflow:auto;
+}
+table{
+    width:100%;
+    border-collapse:collapse;
+    empty-cells:show;
+    font-size:1.2em;
+}
+table th{
+    padding:5px;
+    background-color:gainsboro;
+    
+
+}
+table thead html{
+    width:100%;
+}
+table thead{
+    position:fixed;
+    top:50px;
+    width:100%;
+    display:block;
+}
+table td{
+    padding:5px;
+}
+table td:last-child{
+    width:20px;
+    text-align:center;
+    position:relative;
+}
+.fab{
+    font-size:large;
+    background-color:red;
+    color:green;
+    position: absolute;
+    bottom:20px;
+    right:20px;
+    text-decoration:none;
+    border-radius:50px;
+    height:60px;
+    width:60px;
+    line-height:50px;
+    
+}
+.flotante{
+    display:flex;
+    flex-direction:column;
+    background:white;
+    border:1px solid gray;
+    width:fit-content;
+    padding:5px;
+
+}
+.flotante a{
+    text-decoration:none;
+    color:black;
+    display:none;
+}
+td > .flotante a{
+    display:flex;
+    flex-direction:column;
+    
+    gap:10px;
+    position:absolute;
+    right:5px;
+    top:30px;
+    z-index:1;
+   
+}
+    .flotante a:hover {
+        background-color:gray;
+    }
+    form{
+        margin:20px;
+        display:flex;
+        flex-direction:column;
+
+        gap:10px;
+    }
+    fomr input , form label {
+        font-size:large;
+    }
+    .error{
+        text-align:center;
+        color:red;
+    }

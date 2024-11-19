@@ -1,0 +1,40 @@
+﻿@page
+@model NotificacionesPush.Pages.IndexModel
+@{
+}
+<html>
+<head>
+    <title>Notificaciones</title>
+</head>
+<body>
+    <h1>Ejemplo de notificaciones por Push</h1>
+
+    <script>
+        const vapidPublicKey = "BFeEhCBqLE8EGdQCjkkRfLVwol_y63cwufhqOaInPCPgfZWzUQINCqNkSeNAhZlulNem3sClQ3wu6Nz_AFhVcO0";
+
+
+       async function Iniciar(){
+        //Registrar service worker
+           
+        const registro = await navigator.serviceWorker.register("ServiceWorker.js");
+
+
+        //solicitar un registro push
+           const suscription = await registro.pushManager.subscribe({
+               applicationServerKey: vapidPublicKey,
+               userVisibleOnly: true,
+           });
+           console.log(JSON.stringify(suscription));
+
+            await fetch("/api/Notificaciones", {
+               method: "POST",
+               body: JSON.stringify(suscription),
+               headers: {
+                   "content-type": "application/json"
+               }
+           });
+       }
+        Iniciar();
+    </script>
+</body>
+</html>
